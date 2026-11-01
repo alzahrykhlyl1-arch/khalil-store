@@ -7,7 +7,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   
-  <!-- أوامر ظهور الصورة في واتساب وفيسبوك -->
   <meta property="og:title" content="متجر خليل للدعاية والإعلان والمطبوعات" />
   <meta property="og:description" content="نقدم لكم خدمات دعائية وتصميمية متكاملة بأعلى معايير الجودة." />
   <meta property="og:image" content="https://alzahrykhlyl1-arch.github.io/khalil-store/logo.jpg.jpg" />
@@ -42,14 +41,23 @@
 
     <div class="cards">
 
+      <!-- البطاقة الأولى (تم إضافة المعرض الفرعي لها كمثال) -->
       <div class="card">
         <img src="logo.jpg.jpg" alt="هوية تجارية متكاملة">
         <h3>هوية تجارية متكاملة</h3>
         <span class="price">80,000 ريال يمني</span>
         <p class="time">مدة التنفيذ: أسبوع</p>
         <a class="btn" href="https://wa.me/967778394791?text=أريد%20طلب%20خدمة:%20هوية%20تجارية%20متكاملة" target="_blank">اطلب الآن</a>
+        
+        <!-- المعرض الفرعي (الصور المصغرة) -->
+        <div class="sub-gallery">
+          <img src="logo.jpg.jpg" alt="عمل 1" onclick="openModal(this.src)">
+          <img src="logo.jpg.jpg" alt="عمل 2" onclick="openModal(this.src)">
+          <img src="logo.jpg.jpg" alt="عمل 3" onclick="openModal(this.src)">
+        </div>
       </div>
-      
+
+      <!-- بقية البطاقات (يمكنك إضافة المعرض الفرعي لها بنفس الطريقة لاحقاً) -->
       <div class="card">
         <img src="logo.jpg.jpg" alt="تصميم شعار">
         <h3>تصميم شعار</h3>
@@ -202,13 +210,33 @@
     <a href="https://www.instagram.com/khalil_advertising" target="_blank">إنستغرام</a>
     <p>جميع الحقوق محفوظة © متجر خليل للدعاية والإعلان 2026</p>
   </footer>
+
+  <!-- النافذة المنبثقة لعرض الصور -->
+  <div id="imageModal" class="modal">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <img id="modalImage" src="" alt="صورة مكبرة">
+  </div>
+
   <script>
+    // كود الواتساب
     document.querySelectorAll('a[href*="wa.me"]').forEach(function (a) {
       var parts = a.getAttribute('href').split('?text=');
       if (parts.length === 2) {
         a.href = parts[0] + '?text=' + encodeURIComponent(decodeURIComponent(parts[1]));
       }
     });
+
+    // كود فتح وإغلاق الصور
+    function openModal(imageSrc) {
+      var modal = document.getElementById("imageModal");
+      var modalImg = document.getElementById("modalImage");
+      modal.style.display = "flex";
+      modalImg.src = imageSrc;
+    }
+
+    function closeModal() {
+      document.getElementById("imageModal").style.display = "none";
+    }
   </script>
 </body>
 </html>
