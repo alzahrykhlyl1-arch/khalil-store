@@ -17,8 +17,8 @@ html {
 
 body {
   font-family: 'Cairo', Tahoma, sans-serif;
-  background: var(--white);
-  color: var(--brown);
+  background-color: #FFFFFF; /* خلفية بيضاء */
+ color: #333333; /* نصوص رمادية غامقة لتكون واضحة */
   line-height: 1.8;
 }
 
